@@ -29,9 +29,6 @@ app.get('/crash-test', () => {
   }, 0);
 });
 app.post('/sign-up', celebrate({
-  headers: Joi.object().keys({
-    'Content-Type': Joi.string().required(),
-  }).unknown(true),
   body: Joi.object().keys({
     email: Joi.string().required().email(),
     password: Joi.string().required(),
