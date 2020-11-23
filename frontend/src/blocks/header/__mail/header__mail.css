@@ -1,0 +1,16 @@
+.header__mail {
+  margin-left: auto;
+  height: min-content;
+  width: min-content;
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  margin-top: 0;
+}
+
+@media (max-width : 500px) {
+  .header__mail {
+    display: none;
+  }
+}

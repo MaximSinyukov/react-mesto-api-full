@@ -1,0 +1,26 @@
+.card__image {
+  width: 282px;
+  height: 282px;
+  grid-column: 1/-1;
+  grid-row: 1;
+  object-fit: cover;
+  border-radius: 7px 7px 0 0;
+}
+
+.card__image:hover {
+  cursor: pointer;
+}
+
+@media (max-width : 1023px) {
+  .card__image {
+    width: 332px;
+    height: 332px;
+  }
+}
+
+@media (max-width : 500px) {
+  .card__image {
+    width: 282px;
+    height: 282px;
+  }
+}

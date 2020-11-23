@@ -1,0 +1,12 @@
+.popup__submit-button_type_error {
+  color: black;
+  opacity: .2;
+  background-color: white;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+.popup__submit-button_type_error:hover {
+  opacity: .2;
+  cursor: default;
+}

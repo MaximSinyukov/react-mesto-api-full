@@ -1,0 +1,22 @@
+.auth__redirect {
+  text-decoration: none;
+  text-align: center;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: white;
+  margin: 0 auto;
+}
+
+.auth__redirect:hover {
+  transition: opacity .5s linear;
+  opacity: .6;
+  cursor: pointer;
+}
+
+@media (max-width : 500px) {
+  .auth__redirect {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

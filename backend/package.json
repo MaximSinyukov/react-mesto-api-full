@@ -1,7 +1,7 @@
 {
-  "name": "express-mesto",
+  "name": "react-mesto-api-full-backend",
   "version": "1.0.0",
-  "description": "создание REST API",
+  "description": "REST API для сервера",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -9,19 +9,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MaximSinyukov/express-mesto.git"
+    "url": "git+https://github.com/MaximSinyukov/react-mesto-api-full.git"
   },
   "keywords": [],
   "author": "Maxim Sinyukov",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MaximSinyukov/express-mesto/issues"
+    "url": "https://github.com/MaximSinyukov/react-mesto-api-full/issues"
   },
-  "homepage": "https://github.com/MaximSinyukov/express-mesto#readme",
+  "homepage": "https://github.com/MaximSinyukov/react-mesto-api-full#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "celebrate": "^13.0.4",
+    "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
-    "mongoose": "^5.10.9"
+    "express-winston": "^4.0.5",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.9",
+    "validator": "^13.1.17",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "eslint": "^7.10.0",

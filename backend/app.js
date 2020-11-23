@@ -3,7 +3,12 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const { celebrate, Joi, errors } = require('celebrate');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 const routes = require('./routes/index').router;
+const { createUser, login } = require('./controllers/users');
+const auth = require('./middlewares/auth');
 
 mongoose.connect('mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
@@ -12,21 +17,67 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useUnifiedTopology: true,
 });
 
-app.use(bodyParser.json());
+const allowedCors = [
+  'https://maxsin.students.nomoreparties.co',
+  'http://maxsin.students.nomoreparties.co',
+  'https://www.maxsin.students.nomoreparties.co',
+  'http://www.maxsin.students.nomoreparties.co',
+];
 
 const { PORT = 3000 } = process.env;
 
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(requestLogger);
 app.use((req, res, next) => {
-  req.user = {
-    _id: '5f832495dfaf3c3354317f9a',
-  };
+  const { origin } = req.headers;
+  if (allowedCors.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
 
   next();
 });
-
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+app.post('/sign-up', celebrate({
+  headers: Joi.object().keys({
+    'Content-Type': Joi.string().required(),
+  }).unknown(true),
+  body: Joi.object().keys({
+    email: Joi.string().required().email(),
+    password: Joi.string().required(),
+  }),
+}), createUser);
+app.post('/sign-in', celebrate({
+  headers: Joi.object().keys({
+    'Content-Type': Joi.string().required(),
+  }).unknown(true),
+  body: Joi.object().keys({
+    email: Joi.string().required().email(),
+    password: Joi.string().required(),
+  }),
+}), login);
+app.use(auth);
 app.use(routes);
 
+app.use(errorLogger);
+app.use(errors());
+// eslint-disable-next-line no-unused-vars
+app.use((err, req, res, next) => {
+  const { statusCode = 500, message } = err;
+
+  res
+    .status(statusCode)
+    .send({
+      message: statusCode === 500
+        ? 'На сервере произошла ошибка'
+        : message,
+    });
+});
+
 app.listen(PORT, () => {
-  // Если всё работает, консоль покажет, какой порт приложение слушает
   console.log(`App listening on port ${PORT}`);
 });

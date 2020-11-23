@@ -1,0 +1,14 @@
+@import url(./__image/card__image.css);
+@import url(./__trash-button/card__trash-button.css);
+@import url(./__text/card__text.css);
+@import url(./__like-button/card__like-button.css);
+@import url(./__like-button/_active/card__like-button_active.css);
+@import url(./__like-counter/card__like-counter.css);
+
+.card {
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: auto 16%;
+  grid-template-rows: auto;
+  border-radius: 10px;
+}

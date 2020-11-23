@@ -1,0 +1,31 @@
+@import url(./__logo/header__logo.css);
+@import url(./__mail/header__mail.css);
+@import url(./__button/header__button.css);
+@import url(./__mobile-button/header__mobile-button.css);
+
+.header {
+  display: flex;
+  width: 882px;
+  margin: 45px auto 40px;
+  border-bottom: 1px solid rgba(84, 84, 84, .7);
+
+}
+
+@media (max-width : 1023px) {
+  .header {
+    width: 682px;
+  }
+}
+
+@media (max-width : 767px) {
+  .header {
+    width: 482px;
+  }
+}
+
+@media (max-width : 500px) {
+  .header {
+    width: 320px;
+    margin: 28px auto 31.6px;
+  }
+}
