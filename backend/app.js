@@ -35,9 +35,6 @@ app.post('/sign-up', celebrate({
   }),
 }), createUser);
 app.post('/sign-in', celebrate({
-  headers: Joi.object().keys({
-    'Content-Type': Joi.string().required(),
-  }).unknown(true),
   body: Joi.object().keys({
     email: Joi.string().required().email(),
     password: Joi.string().required(),
