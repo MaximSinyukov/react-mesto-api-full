@@ -4,6 +4,7 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const { celebrate, Joi, errors } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const routes = require('./routes/index').router;
@@ -16,27 +17,12 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useFindAndModify: false,
   useUnifiedTopology: true,
 });
-
-const allowedCors = [
-  'https://maxsin.students.nomoreparties.co',
-  'http://maxsin.students.nomoreparties.co',
-  'https://www.maxsin.students.nomoreparties.co',
-  'http://www.maxsin.students.nomoreparties.co',
-];
-
 const { PORT = 3000 } = process.env;
 
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(requestLogger);
-app.use((req, res, next) => {
-  const { origin } = req.headers;
-  if (allowedCors.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', origin);
-  }
-
-  next();
-});
+app.use(cors());
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
