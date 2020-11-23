@@ -1,9 +1,0 @@
-.popup__input_type_avatar {
-  margin: 34px auto 25px;
-}
-
-@media (max-width : 550px) {
-  .popup__input_type_avatar {
-    margin: 10px auto 5px;
-  }
-}
