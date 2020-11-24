@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const NotFoundError = require('../errors/not-found-error');
 
-// eslint-disable-next-line no-unused-vars
-router.use('*', (req, res) => {
+router.use('*', () => {
   throw new NotFoundError('Запрашиваемый ресурс не найден');
 });
 

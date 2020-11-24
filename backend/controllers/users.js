@@ -26,23 +26,9 @@ const login = (req, res, next) => {
         'some-secret-key',
         { expiresIn: '7d' },
       );
-      res
-        .cookie('jwt', token, {
-          maxAge: 3600000 * 24 * 7,
-          httpOnly: true,
-        })
-        .end();
+      res.send({ token });
     })
     .catch(next);
-};
-
-const logout = (req, res) => {
-  res
-    .cookie('jwt', 'emptyCookie', {
-      maxAge: 1,
-      httpOnly: true,
-    })
-    .end();
 };
 
 const patchUser = (req, res, next) => {
@@ -105,7 +91,6 @@ const createUser = (req, res, next) => {
 
 module.exports = {
   login,
-  logout,
   patchUser,
   patchUserAvatar,
   getUserById,
