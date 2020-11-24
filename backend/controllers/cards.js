@@ -58,7 +58,7 @@ const deleteLikeCard = (req, res, next) => {
 const deleteCard = (req, res, next) => {
   Card.findById(req.params.id)
     .then((card) => {
-      if (req.user._id !== card.owner) {
+      if (JSON.stringify(req.user._id) !== JSON.stringify(card.owner)) {
         throw new ForbiddenError('У Вас недостаточно прав для выполнения этой операции');
       }
       return Card.findByIdAndRemove(req.params.id)
