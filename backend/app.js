@@ -26,13 +26,13 @@ app.get('/crash-test', () => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
-app.post('/sign-up', celebrate({
+app.post('/signup', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
-    password: Joi.string().required(),
+    password: Joi.string().required().pattern(new RegExp(/\w*\W*[^ ]/mi)),
   }),
 }), createUser);
-app.post('/sign-in', celebrate({
+app.post('/signin', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
     password: Joi.string().required(),
@@ -57,5 +57,4 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}`);
 });

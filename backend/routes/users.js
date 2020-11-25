@@ -6,7 +6,7 @@ const {
 
 router.patch('/users/me/avatar', celebrate({
   body: Joi.object().keys({
-    avatar: Joi.string().required(),
+    avatar: Joi.string().required().pattern(new RegExp(/https?:\/\/(www\.)?[-0-9/a-z()@:%.+~#=_]+\.{1}[a-z0-9]+\b[//a-z0-9()@:%_+.~#?&=]*/mi)),
   }),
 }), patchUserAvatar);
 

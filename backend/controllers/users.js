@@ -4,6 +4,7 @@ const User = require('../models/user');
 const BadRequestError = require('../errors/bad-request-error');
 const UnauthorizedError = require('../errors/unauthorized-error');
 const NotFoundError = require('../errors/not-found-error');
+const ConflictError = require('../errors/conflict-error');
 
 const login = (req, res, next) => {
   const { email, password } = req.body;
@@ -78,10 +79,12 @@ const createUser = (req, res, next) => {
       return User.create({
         email, password, name, about, avatar,
       })
-        .then((user) => res.status(201).send(user))
+        .then(() => {
+          res.status(201).send({ email });
+        })
         .catch((err) => {
-          if (err.name === 'ValidationError') {
-            next(new BadRequestError('Переданы некорректные данные'));
+          if (err.name === 'MongoError') {
+            next(new ConflictError('К данной почте уже привязан аккаунт'));
           }
           next(err);
         });
