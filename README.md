@@ -6,7 +6,7 @@
 
 ## :page_with_curl: Описание проекта
 
-Финальная работа по проекту `Mesto`. Внутри этого репозитория присутсвуют front-end и back-end части приложения. Front-end часть является сборкой встроенного Webpack'a из репозитория [React-Mesto-Auth](https://github.com/MaximSinyukov/react-mesto-auth). А back-end часть является улучшенной версией проекта [Mesto-Express](https://github.com/MaximSinyukov/express-mesto).
+Финальная работа по проекту `Mesto`. Внутри этого репозитория присутствуют front-end и back-end части приложения. Front-end часть является сборкой встроенного Webpack'a из репозитория [React-Mesto-Auth](https://github.com/MaximSinyukov/react-mesto-auth). А back-end часть является улучшенной версией проекта [Mesto-Express](https://github.com/MaximSinyukov/express-mesto).
 
 ## :book: Суть проекта
 
@@ -98,7 +98,7 @@
 
 ## :mag_right: Полученные навыки
 
-* настройка сбора логов для входящих запросови полученных ошибок
+* настройка сбора логов для входящих запросов и полученных ошибок
 * защита некоторых роутов через мидлвэр
 * валидация полей до передачи в контроллеры
 * работа с генерацией токена
