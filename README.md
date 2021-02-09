@@ -1,5 +1,10 @@
 # Проект Mesto React-Express
 
+<p>
+  <img alt="Status" src="https://img.shields.io/badge/status-released-green" >
+  <img alt="Author" src="https://img.shields.io/badge/author-MaximSinyukov-blue" />
+</p>
+
 **Демонстрация проекта на [Яндекс.Облако](https://cloud.yandex.ru/): [Mesto React-Express](https://maxsin.students.nomoreparties.co)**
 
 **Сервер с API расположен по адресу - https://api.maxsin.students.nomoreparties.co**
