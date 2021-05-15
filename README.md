@@ -5,10 +5,6 @@
   <img alt="Author" src="https://img.shields.io/badge/author-MaximSinyukov-blue" />
 </p>
 
-**Демонстрация проекта на [Яндекс.Облако](https://cloud.yandex.ru/): [Mesto React-Express](https://maxsin.students.nomoreparties.co)**
-
-**Сервер с API расположен по адресу - https://api.maxsin.students.nomoreparties.co**
-
 ## :page_with_curl: Описание проекта
 
 Финальная работа по проекту `Mesto`. Внутри этого репозитория присутствуют front-end и back-end части приложения. Front-end часть является сборкой встроенного Webpack'a из репозитория [React-Mesto-Auth](https://github.com/MaximSinyukov/react-mesto-auth). А back-end часть является улучшенной версией проекта [Mesto-Express](https://github.com/MaximSinyukov/express-mesto).
